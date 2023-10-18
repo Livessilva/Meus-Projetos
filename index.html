@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracker de Criptomoedas</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 28px;
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            width: 100%;
+            margin: 20px 0;
+            background-color: #fff;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 24px;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            th, td {
+                padding: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 20px;
+            }
+
+            table {
+                font-size: 10px;
+            }
+        }
+
+        div {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        #cryptoChartCanvas {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tracker de Criptomoedas</h1>
+    </header>
+
+    <div>
+        <label>Criptomoeda:</label>
+        <input type="text" id="cryptoName">
+        <label>Quantidade:</label>
+        <input type="number" id="cryptoQuantity">
+        <label>Valor de Compra (USD):</label>
+        <input type="number" id="cryptoValue">
+        <label>Data de Compra:</label>
+        <input type="date" id="cryptoDate">
+        <button onclick="addCrypto()">Adicionar Compra</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Criptomoeda</th>
+                <th>Quantidade</th>
+                <th>Valor de Compra (USD)</th>
+                <th>Data de Compra</th>
+            </tr>
+        </thead>
+        <tbody id="cryptoTable">
+            <!-- Dados serão preenchidos aqui -->
+        </tbody>
+    </table>
+
+    <div>
+        <p><strong>Valor Total Investido (USD):</strong> <span id="totalInvested">0</span></p>
+    </div>
+
+    <div id="cryptoChartCanvas">
+        <canvas id="cryptoChart" width="300" height="300"></canvas>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
